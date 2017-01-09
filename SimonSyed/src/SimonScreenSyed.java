@@ -43,33 +43,33 @@ public class SimonScreenSyed extends ClickableScreen implements Runnable{
 
 				public void act() {
 
-						Thread buttonPress = new Thread(new Runnable() {
-							
-							public void run() {
-								b.highlight();
-								try {
-									Thread.sleep(500);
-								} catch (InterruptedException e) {
-									e.printStackTrace();
-								}
-								b.dim();
-								
-							}
-						});
-						buttonPress.start();
+					Thread buttonPress = new Thread(new Runnable() {
 						
+						public void run() {
+							b.highlight();
+							try {
+								Thread.sleep(500);
+							} catch (InterruptedException e) {
+								e.printStackTrace();
+							}
+							b.dim();
+							
+						}
+					});
+					buttonPress.start();
+					
 
-						if(acceptingInput && sequence.get(sequenceIndex).getButton() == b){
-							sequenceIndex++;
-						}else if(acceptingInput){
-							gameOver();
-							return;
-						}
-						if(sequenceIndex == sequence.size()){
-							Thread nextRound = new Thread(SimonScreenSyed.this);
-							nextRound.start();
-						}
+					if(acceptingInput && sequence.get(sequenceIndex).getButton() == b){
+						sequenceIndex++;
+					}else if(acceptingInput){
+						gameOver();
+						return;
 					}
+					if(sequenceIndex == sequence.size()){
+						Thread nextRound = new Thread(SimonScreenSyed.this);
+						nextRound.start();
+					}
+				}
 
 			});
 			viewObjects.add(button[i]);
