@@ -26,16 +26,16 @@ public class SimonScreenSyed extends ClickableScreen implements Runnable{
 		screen.start();
 	}
 	public void initAllObjects(List<Visible> viewObjects) {
-		Color[] colors = {Color.red, Color.blue, Color.pink, Color.orange, Color.green, Color.lightGray};
-		String[] names = {"RED", "BLUE", "PINK", "ORANGE", "GREEN", "LIGHTGRAY"};
-		int buttonCount = 6;
+		Color[] colors = {Color.red, Color.orange, Color.yellow, Color.green, Color.blue, new Color(75,0,130), new Color(138,43,226)};
+		String[] names = {"RED", "ORANGE", "YELLOW", "GREEN", "BLUE", "INDIGO", "VIOLET"};
+		int buttonCount = 7;
 		button = new ButtonInterfaceSyed[buttonCount];
 		for(int i = 0; i < buttonCount; i++ ){
 			button[i] = getAButton();
 			button[i].setName(names[i]);
 			button[i].setColor(colors[i]);
-			button[i].setX(160 + (int)(100*Math.cos(i*2*Math.PI/(buttonCount))));
-			button[i].setY(200 - (int)(100*Math.sin(i*2*Math.PI/(buttonCount))));
+			button[i].setX(160 + (int)(150*Math.cos(i*2*Math.log(6)/(buttonCount))));
+			button[i].setY(200 - (int)(150*Math.sin(i*2*Math.log(6)/(buttonCount))-100));
 			final ButtonInterfaceSyed b = button[i];
 			System.out.println(b+" has x = "+b.getX()+", y ="+b.getY());
 			b.dim();
