@@ -11,8 +11,8 @@ import guiPractice.components.Components;
 
 public class ButtonSyed extends Components implements ButtonInterfaceSyed {
 
-	private static final int WIDTH = 50;
-	private static final int HEIGHT = 50;
+	private static final int WIDTH = 75;
+	private static final int HEIGHT = 75;
 	private Action action;
 	private Color c;
 	private Color displayColor;
@@ -24,7 +24,6 @@ public class ButtonSyed extends Components implements ButtonInterfaceSyed {
 
 	public boolean isHovered(int x, int y) {
 		double distance = Math.sqrt(Math.pow(x-(getX()+WIDTH/2), 2)+Math.pow(y-(getY()+HEIGHT/2), 2));
-//		System.out.println(distance + " px away from "+name);
 		return distance < WIDTH/2;
 	}
 
