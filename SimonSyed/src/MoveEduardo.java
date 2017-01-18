@@ -1,12 +1,12 @@
 public class MoveEduardo implements MoveInterfaceSyed {
 
-	private ButtonInterface b; 
+	private ButtonInterfaceSyed b; 
 	
-	public Move(ButtonInterface b) {
+	public Move(ButtonInterfaceSyed b) {
 		this.b = b;
 	}
 
-	public ButtonInterface getButton() {
+	public ButtonInterfaceSyed getButton() {
 		return b;
 	}
 
