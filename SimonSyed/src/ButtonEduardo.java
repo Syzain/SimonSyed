@@ -4,8 +4,8 @@ import java.awt.Polygon;
 import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 
-import guiTeacher.components.Action;
-import guiTeacher.components.Component;
+import guiPractice.components.Action;
+import guiPractice.components.Component;
 
 public class ButtonEduardo extends Components implements ButtonInterfaceSyed {
 
@@ -15,6 +15,7 @@ public class ButtonEduardo extends Components implements ButtonInterfaceSyed {
 	private Color c;
 	private Color displayColor;
 	private boolean highlight;
+	private String name;
 	
 	public Button() {
 		super(0,0,WIDTH,HEIGHT);
@@ -22,7 +23,6 @@ public class ButtonEduardo extends Components implements ButtonInterfaceSyed {
 
 	public boolean isHovered(int x, int y) {
 		double distance = Math.sqrt(Math.pow(x-(getX()+WIDTH/2), 2)+Math.pow(y-(getY()+HEIGHT/2), 2));
-//		System.out.println(distance + " px away from "+name);
 		return distance < WIDTH/2;
 	}
 
@@ -57,8 +57,10 @@ public class ButtonEduardo extends Components implements ButtonInterfaceSyed {
 	@Override
 	public void update(Graphics2D g) {
 		g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-		if(displayColor != null) g.setColor(displayColor);
-		else g.setColor(Color.gray);
+		if(displayColor != null)
+			g.setColor(displayColor);
+		else
+			g.setColor(Color.gray);
 		g.fillOval(0, 0, WIDTH, HEIGHT);
 		g.setColor(Color.black);
 		g.drawOval(0, 0, WIDTH-1, HEIGHT-1);
@@ -79,8 +81,6 @@ public class ButtonEduardo extends Components implements ButtonInterfaceSyed {
 		
 	}
 
-	
-	private String name;
 	public void setName(String s){
 		this.name = s;
 	}
